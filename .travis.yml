@@ -1,0 +1,16 @@
+language: minimal
+services:
+- docker
+script: "./build.sh"
+deploy:
+  provider: releases
+  api_key:
+    secure: laa6a0xRcXyK1P4VmQK7BmuV3eNuFoiCEW7e58CBtWQp+Wz8VWeBPAyUKVe6RZEu7Y5ouo6NhBAvOBRtY+bOrLAZXTStJ/B7QKYnIFd+GkUdf7JEGY+CExhWgaIS/qIWJ2wVAZ8EPOXbpx766YyloJQTf53Ct3aSfq0naximkNYDXCwYL3UdzMC2MOWjGo2s/aunQeGigwUFgfmEuCaBa6+2DitDzkVp7zvvzz2phYqHsGyM5FZAkoZ3/+8Zmk/3hMCsbX4eZ3gtxYmAsy2bZtdCvhinaATDr9tWw4BO8PZ+anqqQE4bJZsupfkaJ/EVE4G/vUVevn5dfEuayFcAzRVJuLHaYFGXINZ+fcT6cOaeX4+qNoz8Af4jSf5Nzt0eHfDOLVQqgaI3+VxFFf4TD3gb6IO0a3WJpfpJIAhnHjGlzG5kwyKg9dVDLHeMLuT6sJqHXCGGTUPRNgc6jECEFwKtZogzHPExl/Xk/ZrXfwHahpCzarSXVGkPL54PJaegjuBktDTOGoN13d/dv+3XvmuGkJ4rPcIzdWE0JruxxKS09WYs/J6rNviSgFf/dEDoHlq1273YS85H4GnhFCQ4CBC33qydrtB9EoMLvRZ4e94zt0locnlY2jika35kS1rt/BPT6dm3cIjHD+1M8kLKxG0APDYTaNZ66W+A0RAOw24=
+  file:
+  - build/setpriv
+  - build/tini
+  - build/icecream.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
+    repo: JoshuaWatt/pyrex-utilities
