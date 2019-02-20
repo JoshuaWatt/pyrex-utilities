@@ -23,6 +23,7 @@ ICECREAM_SHA1=e39103ff5fb6aa7e939b486df25d621696ba1d6f
 wget -O icecream.tar.gz https://github.com/icecc/icecream/archive/${ICECREAM_SHA1}.tar.gz
 tar -xvzf icecream.tar.gz
 cd icecream-$ICECREAM_SHA1
+patch -p1 < /pyrex/patches/icecream-recompile.patch
 mkdir build
 cd build
 ../autogen.sh
