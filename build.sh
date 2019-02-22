@@ -38,7 +38,7 @@ mkdir -p $THIS_DIR/checksums
 (
     cd $THIS_DIR/build
     for f in *; do
-        sha256sum $f | cut -f1 -d' ' > $THIS_DIR/checksums/$f.sha256
+        sha256sum $f | cut -f1 -d' ' > $THIS_DIR/checksums/$f.sha256.txt
     done
 )
 
