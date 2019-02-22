@@ -32,3 +32,13 @@ docker run -it --rm --init \
     garmin/pyrex-util:latest \
     /pyrex/scripts/build_$TARGET.sh
 
+rm -rf $THIS_DIR/checksums
+mkdir -p $THIS_DIR/checksums
+
+(
+    cd $THIS_DIR/build
+    for f in *; do
+        sha256sum $f | cut -f1 -d' ' > $THIS_DIR/checksums/$f.sha256
+    done
+)
+
